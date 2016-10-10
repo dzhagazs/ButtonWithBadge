@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,12 +18,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg5-1z-e0S" customClass="ButtonWithBadge" customModule="ButtonWithBadge" customModuleProvider="target">
-                                <rect key="frame" x="143" y="285" width="283" height="30"/>
-                                <state key="normal" title="Tap me"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg5-1z-e0S" customClass="ButtonWithBadge" customModule="ButtonWithBadge" customModuleProvider="target">
+                                <rect key="frame" x="20" y="60" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.70723227848284353" green="0.84297996759414673" blue="0.74304396686332619" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="ButtonWithBadge"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpY-UQ-YHu">
+                                <rect key="frame" x="20" y="132" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GMl-Bw-7II"/>
+                                    <constraint firstAttribute="width" constant="120" id="tGQ-tn-DW3"/>
+                                </constraints>
+                                <state key="normal" title="change position"/>
+                                <connections>
+                                    <action selector="changePositionAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wxo-hU-QVZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXg-td-GRn">
+                                <rect key="frame" x="20" y="196" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Uwa-AM-BNj"/>
+                                    <constraint firstAttribute="width" constant="46" id="Y0w-Br-c5c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="plusAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GP4-0q-ZKh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m80-6Y-PJ5">
+                                <rect key="frame" x="74" y="196" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="JnV-QE-eKr"/>
+                                    <constraint firstAttribute="height" constant="30" id="Mtk-Br-yjm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="minusAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QP4-WX-v3v"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="13" minValue="13" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="Qnj-EY-m2C">
+                                <rect key="frame" x="160" y="132" width="422" height="31"/>
+                                <connections>
+                                    <action selector="badgeSIzeValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="fK8-QK-c7l"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="badge font size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKD-Rr-R6Y">
+                                <rect key="frame" x="162" y="103" width="418" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="badge font size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rD-1A-aNI">
+                                <rect key="frame" x="162" y="103" width="418" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6rD-1A-aNI" firstAttribute="top" secondItem="yg5-1z-e0S" secondAttribute="bottom" constant="13" id="45Y-52-0fo"/>
+                            <constraint firstItem="Qnj-EY-m2C" firstAttribute="leading" secondItem="qpY-UQ-YHu" secondAttribute="trailing" constant="22" id="4ht-PM-mfm"/>
+                            <constraint firstItem="tKD-Rr-R6Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="162" id="6r5-Eg-V2T"/>
+                            <constraint firstItem="qpY-UQ-YHu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="6wR-AK-vsa"/>
+                            <constraint firstItem="m80-6Y-PJ5" firstAttribute="leading" secondItem="zXg-td-GRn" secondAttribute="trailing" constant="8" id="GQe-Hb-Uvr"/>
+                            <constraint firstItem="yg5-1z-e0S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="60" id="RFQ-Km-SrR"/>
+                            <constraint firstItem="zXg-td-GRn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="V6P-3z-Ng8"/>
+                            <constraint firstItem="Qnj-EY-m2C" firstAttribute="top" secondItem="yg5-1z-e0S" secondAttribute="bottom" constant="42" id="cD8-H8-V3o"/>
+                            <constraint firstAttribute="trailing" secondItem="Qnj-EY-m2C" secondAttribute="trailing" constant="20" id="foI-Qx-Nx4"/>
+                            <constraint firstItem="qpY-UQ-YHu" firstAttribute="top" secondItem="yg5-1z-e0S" secondAttribute="bottom" constant="42" id="lVF-kb-Z6z"/>
+                            <constraint firstItem="zXg-td-GRn" firstAttribute="top" secondItem="qpY-UQ-YHu" secondAttribute="bottom" constant="34" id="nZC-td-RGb"/>
+                            <constraint firstAttribute="trailing" secondItem="yg5-1z-e0S" secondAttribute="trailing" constant="20" id="pdT-0I-UOE"/>
+                            <constraint firstItem="m80-6Y-PJ5" firstAttribute="top" secondItem="qpY-UQ-YHu" secondAttribute="bottom" constant="34" id="qPV-5j-Dv2"/>
+                            <constraint firstAttribute="trailing" secondItem="tKD-Rr-R6Y" secondAttribute="trailing" constant="20" id="uwO-xg-OFv"/>
+                            <constraint firstItem="yg5-1z-e0S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="ySC-Ji-Gp9"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tapButton" destination="yg5-1z-e0S" id="7Kc-95-chA"/>
@@ -30,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="261" y="448"/>
+            <point key="canvasLocation" x="519" y="455"/>
         </scene>
     </scenes>
 </document>

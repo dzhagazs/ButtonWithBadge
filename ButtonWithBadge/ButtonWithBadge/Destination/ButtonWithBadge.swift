@@ -186,7 +186,7 @@ public class ButtonWithBadge: UIButton {
 			break
 			
 		case .topLeft:
-			let leadingConstraint = NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: badgeLabel, attribute: .Leading, multiplier: 1.0, constant: -5)
+			let leadingConstraint = NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: badgeLabel, attribute: .Leading, multiplier: 1.0, constant: 5)
 			self.addConstraint(leadingConstraint)
 			let topConstraint = NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: badgeLabel, attribute: .Top, multiplier: 1.0, constant: 5)
 			self.addConstraint(topConstraint)
@@ -194,9 +194,9 @@ public class ButtonWithBadge: UIButton {
 			break
 			
 		case .bottomLeft:
-			let leadingConstraint = NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: badgeLabel, attribute: .Leading, multiplier: 1.0, constant: -5)
+			let leadingConstraint = NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: badgeLabel, attribute: .Leading, multiplier: 1.0, constant: 5)
 			self.addConstraint(leadingConstraint)
-			let bottomConstraint = NSLayoutConstraint(item: self, attribute: .Bottom, relatedBy: .Equal, toItem: badgeLabel, attribute: .Bottom, multiplier: 1.0, constant: 5)
+			let bottomConstraint = NSLayoutConstraint(item: self, attribute: .Bottom, relatedBy: .Equal, toItem: badgeLabel, attribute: .Bottom, multiplier: 1.0, constant: -5)
 			self.addConstraint(bottomConstraint)
 			badgePositionConstraints = [leadingConstraint, bottomConstraint]
 			break
@@ -204,7 +204,7 @@ public class ButtonWithBadge: UIButton {
 		case .bottomRight:
 			let trailingConstraint = NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: badgeLabel, attribute: .Trailing, multiplier: 1.0, constant: -5)
 			self.addConstraint(trailingConstraint)
-			let bottomConstraint = NSLayoutConstraint(item: self, attribute: .Bottom, relatedBy: .Equal, toItem: badgeLabel, attribute: .Bottom, multiplier: 1.0, constant: 5)
+			let bottomConstraint = NSLayoutConstraint(item: self, attribute: .Bottom, relatedBy: .Equal, toItem: badgeLabel, attribute: .Bottom, multiplier: 1.0, constant: -5)
 			self.addConstraint(bottomConstraint)
 			badgePositionConstraints = [trailingConstraint, bottomConstraint]
 			break

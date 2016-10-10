@@ -13,14 +13,37 @@ class ViewController: UIViewController {
 	@IBOutlet weak var tapButton: ButtonWithBadge!
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		tapButton.badgeValue = 10
 	}
+	
+	// MARK: - Actoins
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
+	@IBAction func changePositionAction(sender: AnyObject) {
+		let currentPosition = tapButton.badgePosition
+		var nextPosition: BadgePosition
+		switch currentPosition {
+		case .topRight:
+			nextPosition = .topLeft
+		case .topLeft:
+			nextPosition = .bottomLeft
+		case .bottomLeft:
+			nextPosition = .bottomRight
+		case .bottomRight:
+			nextPosition = .topRight
+		}
+		
+		tapButton.badgePosition = nextPosition
 	}
-
-
+	@IBAction func plusAction(sender: AnyObject) {
+		tapButton.badgeValue += 10
+	}
+	
+	@IBAction func minusAction(sender: AnyObject) {
+		tapButton.badgeValue -= 10
+	}
+	
+	@IBAction func badgeSIzeValueChange(sender: UISlider) {
+		tapButton.badgeFontSize = CGFloat(sender.value)
+	}
 }
 
