@@ -64,39 +64,62 @@
                                     <action selector="badgeSIzeValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="fK8-QK-c7l"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="badge font size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKD-Rr-R6Y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="badge font size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKD-Rr-R6Y">
                                 <rect key="frame" x="162" y="103" width="418" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Xxe-uE-aYK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="badge font size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rD-1A-aNI">
-                                <rect key="frame" x="162" y="103" width="418" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value change animation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04d-wZ-1zo">
+                                <rect key="frame" x="162" y="170" width="418" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="WXP-mX-G7y"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-tt-PxQ">
+                                <rect key="frame" x="162" y="197" width="418" height="29"/>
+                                <segments>
+                                    <segment title="none"/>
+                                    <segment title="bouncing"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeAnimationType:" destination="BYZ-38-t0r" eventType="valueChanged" id="xcO-8H-fQq"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6rD-1A-aNI" firstAttribute="top" secondItem="yg5-1z-e0S" secondAttribute="bottom" constant="13" id="45Y-52-0fo"/>
+                            <constraint firstItem="04d-wZ-1zo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="162" id="0OP-bT-PpT"/>
+                            <constraint firstItem="04d-wZ-1zo" firstAttribute="top" secondItem="Qnj-EY-m2C" secondAttribute="bottom" constant="8" id="0sk-ef-kpn"/>
                             <constraint firstItem="Qnj-EY-m2C" firstAttribute="leading" secondItem="qpY-UQ-YHu" secondAttribute="trailing" constant="22" id="4ht-PM-mfm"/>
                             <constraint firstItem="tKD-Rr-R6Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="162" id="6r5-Eg-V2T"/>
                             <constraint firstItem="qpY-UQ-YHu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="6wR-AK-vsa"/>
+                            <constraint firstAttribute="trailing" secondItem="Ohb-tt-PxQ" secondAttribute="trailing" constant="20" id="7bP-Av-lN2"/>
                             <constraint firstItem="m80-6Y-PJ5" firstAttribute="leading" secondItem="zXg-td-GRn" secondAttribute="trailing" constant="8" id="GQe-Hb-Uvr"/>
                             <constraint firstItem="yg5-1z-e0S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="60" id="RFQ-Km-SrR"/>
                             <constraint firstItem="zXg-td-GRn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="V6P-3z-Ng8"/>
+                            <constraint firstItem="Ohb-tt-PxQ" firstAttribute="leading" secondItem="m80-6Y-PJ5" secondAttribute="trailing" constant="42" id="aiS-4B-qpb"/>
                             <constraint firstItem="Qnj-EY-m2C" firstAttribute="top" secondItem="yg5-1z-e0S" secondAttribute="bottom" constant="42" id="cD8-H8-V3o"/>
+                            <constraint firstAttribute="trailing" secondItem="04d-wZ-1zo" secondAttribute="trailing" constant="20" id="dMi-UW-6Va"/>
+                            <constraint firstItem="tKD-Rr-R6Y" firstAttribute="top" secondItem="yg5-1z-e0S" secondAttribute="bottom" constant="13" id="eyp-xL-r2v"/>
                             <constraint firstAttribute="trailing" secondItem="Qnj-EY-m2C" secondAttribute="trailing" constant="20" id="foI-Qx-Nx4"/>
                             <constraint firstItem="qpY-UQ-YHu" firstAttribute="top" secondItem="yg5-1z-e0S" secondAttribute="bottom" constant="42" id="lVF-kb-Z6z"/>
                             <constraint firstItem="zXg-td-GRn" firstAttribute="top" secondItem="qpY-UQ-YHu" secondAttribute="bottom" constant="34" id="nZC-td-RGb"/>
                             <constraint firstAttribute="trailing" secondItem="yg5-1z-e0S" secondAttribute="trailing" constant="20" id="pdT-0I-UOE"/>
                             <constraint firstItem="m80-6Y-PJ5" firstAttribute="top" secondItem="qpY-UQ-YHu" secondAttribute="bottom" constant="34" id="qPV-5j-Dv2"/>
+                            <constraint firstItem="Ohb-tt-PxQ" firstAttribute="top" secondItem="04d-wZ-1zo" secondAttribute="bottom" constant="6" id="tux-i7-6gf"/>
                             <constraint firstAttribute="trailing" secondItem="tKD-Rr-R6Y" secondAttribute="trailing" constant="20" id="uwO-xg-OFv"/>
                             <constraint firstItem="yg5-1z-e0S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="ySC-Ji-Gp9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationTypeSegmentedControl" destination="Ohb-tt-PxQ" id="Jsf-uk-Mgg"/>
                         <outlet property="tapButton" destination="yg5-1z-e0S" id="7Kc-95-chA"/>
                     </connections>
                 </viewController>
