@@ -11,15 +11,22 @@ import UIKit
 class ViewController: UIViewController {
 
 	@IBOutlet weak var tapButton: ButtonWithBadge!
+	@IBOutlet weak var hideWhenZeroSwitch: UISwitch!
 	@IBOutlet weak var animationTypeSegmentedControl: UISegmentedControl!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tapButton.badgeValue = 10
 		animationTypeSegmentedControl.selectedSegmentIndex = tapButton.animationType.rawValue
+		hideWhenZeroSwitch.on = tapButton.hidesBadgeIfZero
 	}
 	
 	// MARK: - Actoins
 
+	@IBAction func hidesWhenZeroValueChanged(sender: UISwitch) {
+		tapButton.hidesBadgeIfZero = sender.on
+	}
+	
 	@IBAction func changePositionAction(sender: AnyObject) {
 		let currentPosition = tapButton.badgePosition
 		var nextPosition: BadgePosition
