@@ -3,14 +3,25 @@
 //  Tap
 //
 //  Created by Alexandr on 6/8/16.
-//  Copyright © 2016 f17y. All rights reserved.
+//  Copyright © 2016 dzhagazs. All rights reserved.
 //
 
 import UIKit
 
 class PaddingLabel: UILabel {
 	
-	let padding = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 3)
+	private var padding = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 3)
+	
+	var sideOffset: CGFloat {
+		get {
+			return padding.left
+		}
+		
+		set(newValue) {
+			padding = UIEdgeInsets(top: 0, left: newValue, bottom: 0, right: newValue)
+			setNeedsDisplay()
+		}
+	}
 	
 	override func drawTextInRect(rect: CGRect) {
 		super.drawTextInRect(UIEdgeInsetsInsetRect(rect, padding))
