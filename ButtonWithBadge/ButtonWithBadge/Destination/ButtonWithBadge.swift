@@ -123,16 +123,13 @@ public class ButtonWithBadge: UIButton {
 	//MARK: - Configuration
 	
 	private func updateBadge() {
-//		if value == 0 && hidesBadgeIfZero == true && badgeLabel.hidden == true {
-//			// should show
-//		}
 		switch animationType {
 			case .bouncing:
 				UIView.animateWithDuration(animationDuration * (1.0/3.0), animations: { 
 					self.badgeLabel.transform = CGAffineTransformMakeScale(0.1, 0.1)
 					}, completion: { (completed) in
 						self.badgeLabel.text = String(self.value)
-						
+						self.updateBadgeVisibility()
 						[UIView .animateWithDuration(self.animationDuration * (2.0/3.0), delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.0, options: .TransitionNone, animations: {
 							self.badgeLabel.transform = CGAffineTransformIdentity
 							}, completion: nil)]
@@ -141,7 +138,16 @@ public class ButtonWithBadge: UIButton {
 			break
 			case .none:
 				self.badgeLabel.text = String(self.value)
+				self.updateBadgeVisibility()
 			break
+		}
+	}
+	
+	private func updateBadgeVisibility() {
+		if value == 0 && hidesBadgeIfZero == true {
+			badgeLabel.alpha = 0.0
+		} else if (value == 0 && hidesBadgeIfZero == false) || value != 0  {
+			badgeLabel.alpha = 1.0
 		}
 	}
 	
