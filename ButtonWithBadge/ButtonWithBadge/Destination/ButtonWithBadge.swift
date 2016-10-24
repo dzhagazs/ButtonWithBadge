@@ -3,7 +3,7 @@
 //  Tap
 //
 //  Created by Alexandr on 6/8/16.
-//  Copyright © 2016 f17y. All rights reserved.
+//  Copyright © 2016 dzhagazs. All rights reserved.
 //
 
 import UIKit
@@ -17,17 +17,18 @@ public enum BadgePosition {
 	case bottomLeft
 }
 
-public enum BadgeAnimationType {
-	case bouncing
-	case fade
+public enum BadgeAnimationType: Int {
+	case none = 0
+	case bouncing = 1
 }
 
 public class ButtonWithBadge: UIButton {
 	
 	//MARK: - Private Properties
 	
+	private let animationDuration = 0.5
 	private var value: Int = 0
-	private var badgeLabel: UILabel
+	private var badgeLabel: PaddingLabel
 	private var badgeHeightConstraint: NSLayoutConstraint?
 	private var badgeWidthConstraint: NSLayoutConstraint?
 	private var badgePositionConstraints: [NSLayoutConstraint] = []
@@ -122,33 +123,29 @@ public class ButtonWithBadge: UIButton {
 	//MARK: - Configuration
 	
 	private func updateBadge() {
-		//		badgeLabel = PaddingLabel.init(frame: CGRectZero)
-		//		badgeLabel?.translatesAutoresizingMaskIntoConstraints = false
-		//		badgeLabel?.textAlignment = NSTextAlignment.Center
-		//		badgeLabel?.font = UIFont.systemFontOfSize(10)
-		//		badgeLabel?.textColor = UIColor.whiteColor()
-		//		badgeLabel?.backgroundColor = UIColor.init(red: 201.0/255.0, green: 39.0/255.0, blue: 93.0/255.0, alpha: 1.0)
-		//		self.addSubview(badgeLabel!)
-		//
-		//		let heightConstraint = NSLayoutConstraint(item: badgeLabel, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: CGFloat(badgeHeight))
-		//		badgeLabel?.addConstraint(heightConstraint)
-		//		let widthConstraint = NSLayoutConstraint(item: badgeLabel, attribute: .Width, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: CGFloat(badgeHeight))
-		//		badgeLabel?.addConstraint(widthConstraint)
-		//		let trailingConstraint = NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: badgeLabel!, attribute: .Trailing, multiplier: 1.0, constant: -5)
-		//		self.addConstraint(trailingConstraint)
-		//		let topConstraint = NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: badgeLabel!, attribute: .Top, multiplier: 1.0, constant: 5)
-		//		self.addConstraint(topConstraint)
-		//		badgeLabel?.layer.borderColor = UIColor.init(red: 201.0/255.0, green: 39.0/255.0, blue: 93.0/255.0, alpha: 1.0).CGColor
-		//		badgeLabel?.layer.cornerRadius = CGFloat(badgeHeight/2.0)
-		//		badgeLabel?.layer.borderWidth = 1.0
-		//		badgeLabel?.clipsToBounds = true
-		//		self.badgeTrailingConstraint = trailingConstraint
-		//		self.badgeTopConstraint = topConstraint
-		//		self.badgeWidthConstraint = widthConstraint
-		badgeLabel.text = String(value)
+//		if value == 0 && hidesBadgeIfZero == true && badgeLabel.hidden == true {
+//			// should show
+//		}
+		switch animationType {
+			case .bouncing:
+				UIView.animateWithDuration(animationDuration * (1.0/3.0), animations: { 
+					self.badgeLabel.transform = CGAffineTransformMakeScale(0.1, 0.1)
+					}, completion: { (completed) in
+						self.badgeLabel.text = String(self.value)
+						
+						[UIView .animateWithDuration(self.animationDuration * (2.0/3.0), delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.0, options: .TransitionNone, animations: {
+							self.badgeLabel.transform = CGAffineTransformIdentity
+							}, completion: nil)]
+				})
+
+			break
+			case .none:
+				self.badgeLabel.text = String(self.value)
+			break
+		}
 	}
 	
-	func configureBadgeLabel() {
+	private func configureBadgeLabel() {
 		badgeLabel.translatesAutoresizingMaskIntoConstraints = false
 		badgeLabel.textAlignment = NSTextAlignment.Center
 		badgeLabel.font = UIFont.systemFontOfSize(10)
