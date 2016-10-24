@@ -36,7 +36,16 @@ public class ButtonWithBadge: UIButton {
 	private var badgeIsLayouted: Bool = false
 	private var textColor: UIColor = UIColor.whiteColor()
 	private var badgeBgColor: UIColor = UIColor.init(red: 201.0/255.0, green: 39.0/255.0, blue: 93.0/255.0, alpha: 1.0)
-	public var hidesBadgeIfZero: Bool = true
+	private var hides: Bool = true
+	public var hidesBadgeIfZero: Bool {
+		get {
+			return hides
+		}
+		set (newValue) {
+			hides = newValue
+			updateBadgeVisibility()
+		}
+	}
 	
 	public var badgeTextColor: UIColor {
 		get {
