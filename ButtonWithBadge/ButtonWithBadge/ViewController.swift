@@ -18,16 +18,16 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		tapButton.badgeValue = 10
 		animationTypeSegmentedControl.selectedSegmentIndex = tapButton.animationType.rawValue
-		hideWhenZeroSwitch.on = tapButton.hidesBadgeIfZero
+		hideWhenZeroSwitch.isOn = tapButton.hidesBadgeIfZero
 	}
 	
 	// MARK: - Actoins
 
-	@IBAction func hidesWhenZeroValueChanged(sender: UISwitch) {
-		tapButton.hidesBadgeIfZero = sender.on
+	@IBAction func hidesWhenZeroValueChanged(_ sender: UISwitch) {
+		tapButton.hidesBadgeIfZero = sender.isOn
 	}
 	
-	@IBAction func changePositionAction(sender: AnyObject) {
+	@IBAction func changePositionAction(_ sender: AnyObject) {
 		let currentPosition = tapButton.badgePosition
 		var nextPosition: BadgePosition
 		switch currentPosition {
@@ -44,19 +44,19 @@ class ViewController: UIViewController {
 		tapButton.badgePosition = nextPosition
 	}
 	
-	@IBAction func plusAction(sender: AnyObject) {
+	@IBAction func plusAction(_ sender: AnyObject) {
 		tapButton.badgeValue += 10
 	}
 	
-	@IBAction func minusAction(sender: AnyObject) {
+	@IBAction func minusAction(_ sender: AnyObject) {
 		tapButton.badgeValue -= 10
 	}
 	
-	@IBAction func badgeSIzeValueChange(sender: UISlider) {
+	@IBAction func badgeSIzeValueChange(_ sender: UISlider) {
 		tapButton.badgeFontSize = CGFloat(sender.value)
 	}
 	
-	@IBAction func changeAnimationType(sender: UISegmentedControl) {
+	@IBAction func changeAnimationType(_ sender: UISegmentedControl) {
 		tapButton.animationType = BadgeAnimationType(rawValue: sender.selectedSegmentIndex)!
 	}
 }
