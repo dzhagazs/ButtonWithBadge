@@ -139,9 +139,9 @@ open class ButtonWithBadge: UIButton {
 					}, completion: { (completed) in
 						self.badgeLabel.text = String(self.value)
 						self.updateBadgeVisibility()
-						[UIView .animate(withDuration: self.animationDuration * (2.0/3.0), delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.0, options: UIViewAnimationOptions(), animations: {
+						UIView .animate(withDuration: self.animationDuration * (2.0/3.0), delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.0, options: UIViewAnimationOptions(), animations: {
 							self.badgeLabel.transform = CGAffineTransform.identity
-							}, completion: nil)]
+							}, completion: nil)
 				})
 
 			break
